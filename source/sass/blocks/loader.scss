@@ -1,0 +1,92 @@
+.loader {
+  padding-top: 334px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $color-default-white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  z-index: 1;
+
+  @include viewport--md {
+    padding-top: 477px;
+    padding-bottom: 80px;
+  }
+
+  & svg {
+    margin-bottom: 208px;
+    animation: bounce 0.6s;
+
+    @include viewport--md {
+      width: 550px;
+      height: 70px;
+      margin-bottom: 352px;
+    }
+  }
+
+  & button {
+    border: none;
+    background-color: $color-transparent;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 22px;
+    color: $color-default-black;
+  }
+}
+
+.loader__decktop-text {
+  @include viewport--md {
+    display: none;
+  }
+}
+
+.loader__modile-text {
+  display: none;
+
+  @include viewport--md {
+    display: inline;
+  }
+}
+
+.loader--animation {
+  animation: skip 0.6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-2000px);
+  }
+
+  70% {
+    transform: translateY(30px);
+  }
+
+  90% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes skip {
+  0% {
+    transform: translateX(0);
+  }
+
+  99% {
+    transform: translateX(100vw);
+  }
+
+  100% {
+    transform: translateX(100vw);
+    transform: scale(0);
+  }
+}
